@@ -1,8 +1,8 @@
 import React from 'react';
-import { Mail, Phone, MapPin, QrCode } from 'lucide-react';
+import { Mail, Phone, MapPin } from 'lucide-react';
 import CampaignLogoMark from './CampaignLogoMark';
 
-export default function Footer({ onGoHome, onOpenQR }) {
+export default function Footer({ onGoHome }) {
   return (
     <footer style={{
       borderTop: '1px solid rgba(255, 255, 255, 0.1)',
@@ -45,27 +45,6 @@ export default function Footer({ onGoHome, onOpenQR }) {
           color: '#94a3b8',
           fontSize: '12px'
         }}>
-          <button
-            type="button"
-            onClick={onOpenQR}
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '6px',
-              background: 'rgba(255, 194, 71, 0.12)',
-              border: '1px solid rgba(255, 194, 71, 0.35)',
-              color: '#ffc247',
-              borderRadius: '20px',
-              padding: '4px 12px',
-              fontSize: '12px',
-              fontWeight: 700,
-              cursor: 'pointer'
-            }}
-          >
-            <QrCode className="w-3.5 h-3.5" />
-            <span>Mã QR Trang Web</span>
-          </button>
-          <span>•</span>
           <span style={{ display: 'inline-flex', alignItems: 'center', gap: '5px' }}>
             <Mail className="w-3.5 h-3.5 text-blue-400" />
             <span>khongmotminh@gmail.com</span>

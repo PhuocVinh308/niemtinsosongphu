@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { ArrowRight, Flame, ArrowLeft, Award, Sparkles, UserCheck, Edit3 } from 'lucide-react';
 import { sounds } from '../utils/audio';
-import QRCodeCard from './QRCodeCard';
 
 export default function CategorySelector({ 
   categories = [], 
@@ -212,9 +211,6 @@ export default function CategorySelector({
                 ★ Trả lời đúng từ <strong style={{ color: '#ffc247' }}>8/10 câu</strong> trở lên để được cấp 
                 <strong style={{ color: '#17c990' }}> Giấy Chứng Nhận Chiến Dịch Không Một Mình (File PDF / PNG)</strong> chính thức.
               </div>
-
-              {/* QR Code Banner Section */}
-              <QRCodeCard />
             </div>
           </>
         ) : (

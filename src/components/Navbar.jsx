@@ -1,5 +1,5 @@
 import React from 'react';
-import { Volume2, VolumeX, UserCheck, QrCode, Edit3 } from 'lucide-react';
+import { Volume2, VolumeX, UserCheck } from 'lucide-react';
 import { sounds } from '../utils/audio';
 
 import CampaignLogoMark from './CampaignLogoMark';
@@ -7,7 +7,6 @@ import CampaignLogoMark from './CampaignLogoMark';
 export default function Navbar({ 
   user, 
   onEditProfile, 
-  onOpenQR,
   onGoHome, 
   isMuted, 
   onToggleSound 
@@ -51,25 +50,6 @@ export default function Navbar({
 
         {/* Nav Actions */}
         <div className="nav-actions" style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-          
-          {/* QR Code Button */}
-          <button 
-            type="button" 
-            onClick={onOpenQR}
-            className="lang-switch" 
-            title="Quét mã QR trên điện thoại / Chia sẻ"
-            style={{ 
-              cursor: 'pointer', 
-              gap: '6px', 
-              padding: '0 12px',
-              background: 'rgba(255, 194, 71, 0.15)',
-              borderColor: 'rgba(255, 194, 71, 0.4)',
-              color: '#ffc247'
-            }}
-          >
-            <QrCode className="w-4 h-4 text-amber-400" />
-            <span style={{ fontSize: '11px', fontWeight: 800 }}>MÃ QR</span>
-          </button>
 
           {/* Sound Toggle */}
           <button 
