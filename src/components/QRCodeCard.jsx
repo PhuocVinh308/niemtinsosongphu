@@ -7,8 +7,8 @@ export default function QRCodeCard() {
   const [copied, setCopied] = useState(false);
 
   const webUrl = typeof window !== 'undefined'
-    ? (window.location.origin.includes('github.io') ? 'https://phuocvinh308.github.io/niemtinso/' : window.location.href)
-    : 'https://phuocvinh308.github.io/niemtinso/';
+    ? (window.location.origin.includes('github.io') ? 'https://phuocvinh308.github.io/niemtinsosongphu/' : window.location.href)
+    : 'https://phuocvinh308.github.io/niemtinsosongphu/';
 
   useEffect(() => {
     QRCode.toDataURL(webUrl, {

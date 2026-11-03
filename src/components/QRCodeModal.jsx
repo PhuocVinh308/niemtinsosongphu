@@ -8,8 +8,8 @@ export default function QRCodeModal({ isOpen, onClose }) {
   const canvasRef = useRef(null);
 
   const webUrl = typeof window !== 'undefined' 
-    ? (window.location.origin.includes('github.io') ? 'https://phuocvinh308.github.io/niemtinso/' : window.location.href)
-    : 'https://phuocvinh308.github.io/niemtinso/';
+    ? (window.location.origin.includes('github.io') ? 'https://phuocvinh308.github.io/niemtinsosongphu/' : window.location.href)
+    : 'https://phuocvinh308.github.io/niemtinsosongphu/';
 
   useEffect(() => {
     if (!isOpen) return;
