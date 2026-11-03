@@ -5,6 +5,7 @@ import RegistrationModal from './components/RegistrationModal';
 import QuizScreen from './components/QuizScreen';
 import ResultScreen from './components/ResultScreen';
 import Footer from './components/Footer';
+import QRCodeModal from './components/QRCodeModal';
 import quizData from './data/quiz_questions.json';
 import { sounds } from './utils/audio';
 
@@ -26,6 +27,7 @@ export default function App() {
   });
 
   const [isRegModalOpen, setIsRegModalOpen] = useState(false);
+  const [isQRModalOpen, setIsQRModalOpen] = useState(false);
   const [currentScreen, setCurrentScreen] = useState('home'); // 'home' | 'quiz' | 'result'
   const [activeCategory, setActiveCategory] = useState(null);
   const [currentQuestions, setCurrentQuestions] = useState([]);
@@ -87,6 +89,7 @@ export default function App() {
       <Navbar 
         user={user}
         onEditProfile={() => setIsRegModalOpen(true)}
+        onOpenQR={() => setIsQRModalOpen(true)}
         onGoHome={handleGoHome}
         isMuted={isMuted}
         onToggleSound={handleToggleSound}
@@ -101,6 +104,7 @@ export default function App() {
             user={user}
             onSaveProfile={handleSaveProfile}
             onStartQuiz={handleStartQuiz}
+            onOpenQR={() => setIsQRModalOpen(true)}
           />
         )}
 
@@ -125,7 +129,7 @@ export default function App() {
       </main>
 
       {/* Site Footer: Song Phú */}
-      <Footer onGoHome={handleGoHome} />
+      <Footer onGoHome={handleGoHome} onOpenQR={() => setIsQRModalOpen(true)} />
 
       {/* Profile Edit Modal */}
       <RegistrationModal 
@@ -137,6 +141,12 @@ export default function App() {
           setIsRegModalOpen(false);
         }}
         requiredToStart={false}
+      />
+
+      {/* QR Code Modal */}
+      <QRCodeModal 
+        isOpen={isQRModalOpen}
+        onClose={() => setIsQRModalOpen(false)}
       />
 
     </div>
