@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ArrowRight, Flame, ArrowLeft, Award, Sparkles } from 'lucide-react';
+import { ArrowRight, Flame, ArrowLeft, Award, Sparkles, UserCheck, Edit3 } from 'lucide-react';
 import { sounds } from '../utils/audio';
 import QRCodeCard from './QRCodeCard';
 
@@ -8,7 +8,8 @@ export default function CategorySelector({
   questionsByGroup = {}, 
   user, 
   onSaveProfile,
-  onStartQuiz 
+  onStartQuiz,
+  onEditProfile
 }) {
   const [selectedCat, setSelectedCat] = useState(null);
   const [fullName, setFullName] = useState(user?.fullName || '');
@@ -60,6 +61,75 @@ export default function CategorySelector({
         
         {!selectedCat ? (
           <>
+            {/* Candidate Information Bar with explicit "CẬP NHẬT TÊN" button */}
+            <div style={{
+              maxWidth: '780px',
+              margin: '0 auto 28px',
+              background: 'linear-gradient(135deg, rgba(13, 27, 46, 0.85) 0%, rgba(7, 17, 30, 0.95) 100%)',
+              border: '1px solid rgba(255, 194, 71, 0.4)',
+              borderRadius: '16px',
+              padding: '14px 20px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+              gap: '14px',
+              flexWrap: 'wrap',
+              boxShadow: '0 10px 25px rgba(0,0,0,0.35)'
+            }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '12px', textAlign: 'left' }}>
+                <div style={{
+                  width: '42px',
+                  height: '42px',
+                  borderRadius: '50%',
+                  background: user?.fullName ? 'linear-gradient(135deg, #10b981 0%, #059669 100%)' : 'linear-gradient(135deg, #ffc247 0%, #d97706 100%)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  color: '#ffffff',
+                  boxShadow: '0 4px 12px rgba(0,0,0,0.2)',
+                  flexShrink: 0
+                }}>
+                  <UserCheck className="w-5 h-5 text-white" />
+                </div>
+                <div>
+                  <div style={{ fontSize: '11px', color: '#ffc247', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+                    Thông tin thí sinh in Giấy Chứng Nhận
+                  </div>
+                  <div style={{ fontSize: '15px', fontWeight: 800, color: '#ffffff', marginTop: '2px' }}>
+                    {user?.fullName ? (
+                      <span>{user.fullName} {user?.unit && <span style={{ color: '#94a3b8', fontWeight: 500, fontSize: '13px' }}>— {user.unit}</span>}</span>
+                    ) : (
+                      <span style={{ color: '#fb7185' }}>Chưa nhập thông tin thí sinh</span>
+                    )}
+                  </div>
+                </div>
+              </div>
+
+              <button
+                type="button"
+                onClick={onEditProfile}
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '8px',
+                  background: 'linear-gradient(135deg, #ffc247 0%, #e09b12 100%)',
+                  color: '#07111e',
+                  border: 'none',
+                  borderRadius: '10px',
+                  padding: '9px 18px',
+                  fontSize: '13px',
+                  fontWeight: 900,
+                  cursor: 'pointer',
+                  boxShadow: '0 4px 14px rgba(255, 194, 71, 0.4)',
+                  whiteSpace: 'nowrap',
+                  transition: 'transform 0.15s'
+                }}
+              >
+                <Edit3 className="w-4 h-4 text-slate-900" />
+                <span>{user?.fullName ? 'CẬP NHẬT LẠI TÊN' : 'CẬP NHẬT TÊN NGAY'}</span>
+              </button>
+            </div>
+
             <h1>
               Bạn có <span className="red-highlight">dễ bị lừa?</span>
             </h1>

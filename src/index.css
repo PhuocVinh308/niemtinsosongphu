@@ -75,6 +75,14 @@ canvas {
   .brand small {
     font-size: 11px !important;
   }
+  .nav-actions {
+    display: flex !important;
+    align-items: center !important;
+    gap: 6px !important;
+  }
+  .button-small {
+    display: inline-flex !important;
+  }
 
   /* Quiz Hero on mobile */
   .quiz-start {

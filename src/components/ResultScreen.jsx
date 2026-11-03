@@ -10,7 +10,9 @@ import {
   Image as ImageIcon, 
   Loader2,
   Award,
-  Sparkles
+  Sparkles,
+  Edit3,
+  UserCheck
 } from 'lucide-react';
 import Certificate from './Certificate';
 import { downloadCertificatePDF, downloadCertificateImage } from '../utils/generatePdf';
@@ -20,7 +22,8 @@ export default function ResultScreen({
   result, 
   user, 
   onRetryQuiz, 
-  onGoHome 
+  onGoHome,
+  onEditProfile
 }) {
   const { score = 0, total = 10, category, userAnswers = [], duration = '00:00' } = result || {};
   const isPassed = score >= 8;
@@ -175,6 +178,17 @@ export default function ResultScreen({
               >
                 {isExportingPNG ? <Loader2 className="w-5 h-5 animate-spin" /> : <ImageIcon className="w-5 h-5 text-indigo-600" />}
                 <span>TẢI ẢNH (PNG)</span>
+              </button>
+
+              {/* Edit Name Button on Certificate */}
+              <button
+                type="button"
+                onClick={onEditProfile}
+                className="w-full sm:w-auto min-h-[50px] sm:min-h-[54px] px-5 py-3 text-sm font-bold bg-indigo-950/80 hover:bg-indigo-900/90 text-indigo-200 border border-indigo-500/40 rounded-xl cursor-pointer flex items-center justify-center gap-2 transition active:scale-95 shadow-md"
+                title="Bấm để chỉnh sửa Họ tên và Đơn vị in trên giấy chứng nhận"
+              >
+                <Edit3 className="w-4 h-4 text-amber-400" />
+                <span>Đổi tên in chứng nhận</span>
               </button>
 
               {/* Retry Button */}

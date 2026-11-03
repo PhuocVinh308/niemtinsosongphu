@@ -105,6 +105,7 @@ export default function App() {
             onSaveProfile={handleSaveProfile}
             onStartQuiz={handleStartQuiz}
             onOpenQR={() => setIsQRModalOpen(true)}
+            onEditProfile={() => setIsRegModalOpen(true)}
           />
         )}
 
@@ -124,6 +125,7 @@ export default function App() {
             user={user}
             onRetryQuiz={handleRetryQuiz}
             onGoHome={handleGoHome}
+            onEditProfile={() => setIsRegModalOpen(true)}
           />
         )}
       </main>

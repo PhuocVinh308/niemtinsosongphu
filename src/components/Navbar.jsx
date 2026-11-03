@@ -1,5 +1,5 @@
 import React from 'react';
-import { Volume2, VolumeX, UserPlus, QrCode } from 'lucide-react';
+import { Volume2, VolumeX, UserCheck, QrCode, Edit3 } from 'lucide-react';
 import { sounds } from '../utils/audio';
 
 import CampaignLogoMark from './CampaignLogoMark';
@@ -50,7 +50,7 @@ export default function Navbar({
         </nav>
 
         {/* Nav Actions */}
-        <div className="nav-actions">
+        <div className="nav-actions" style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
           
           {/* QR Code Button */}
           <button 
@@ -83,15 +83,42 @@ export default function Navbar({
             <span style={{ fontSize: '11px', fontWeight: 700 }}>{isMuted ? 'MUTE' : 'ÂM THANH'}</span>
           </button>
 
-          {/* User Profile Button */}
+          {/* User Profile / Update Name Button - ALWAYS VISIBLE ON ALL SCREEN SIZES */}
           <button 
             type="button"
-            className="button button-small" 
             onClick={onEditProfile}
-            style={{ cursor: 'pointer' }}
+            title="Bấm để cập nhật Họ tên & Đơn vị in Giấy chứng nhận"
+            style={{ 
+              cursor: 'pointer',
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '6px',
+              padding: '6px 14px',
+              borderRadius: '20px',
+              background: user?.fullName 
+                ? 'linear-gradient(135deg, #1e40af 0%, #3b82f6 100%)' 
+                : 'linear-gradient(135deg, #d97706 0%, #f59e0b 100%)',
+              border: '1px solid rgba(255, 255, 255, 0.25)',
+              color: '#ffffff',
+              boxShadow: '0 3px 10px rgba(0,0,0,0.3)',
+              fontSize: '12px',
+              fontWeight: 800,
+              flexShrink: 0
+            }}
           >
-            <UserPlus className="w-4 h-4 mr-1.5" />
-            <span>{user?.fullName ? user.fullName : 'Thí sinh'}</span>
+            <UserCheck className="w-3.5 h-3.5 text-amber-300" />
+            <span style={{ maxWidth: '120px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+              {user?.fullName ? user.fullName : 'Cập nhật tên'}
+            </span>
+            <span style={{
+              background: 'rgba(255, 255, 255, 0.25)',
+              borderRadius: '6px',
+              padding: '1px 5px',
+              fontSize: '10px',
+              fontWeight: 700
+            }}>
+              Đổi
+            </span>
           </button>
 
         </div>
