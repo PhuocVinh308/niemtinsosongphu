@@ -1,0 +1,15 @@
+# Dependencies
+node_modules/
+
+# Production build
+dist/
+dist-ssr/
+
+# Environment and system files
+.DS_Store
+*.local
+*.log
+
+# Scraper scratch files
+orig_*.css
+original_page.html
