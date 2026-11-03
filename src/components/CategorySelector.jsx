@@ -91,16 +91,26 @@ export default function CategorySelector({
                   <UserCheck className="w-5 h-5 text-white" />
                 </div>
                 <div>
-                  <div style={{ fontSize: '11px', color: '#ffc247', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
-                    Thông tin thí sinh in Giấy Chứng Nhận
-                  </div>
-                  <div style={{ fontSize: '15px', fontWeight: 800, color: '#ffffff', marginTop: '2px' }}>
-                    {user?.fullName ? (
-                      <span>{user.fullName} {user?.unit && <span style={{ color: '#94a3b8', fontWeight: 500, fontSize: '13px' }}>— {user.unit}</span>}</span>
-                    ) : (
-                      <span style={{ color: '#fb7185' }}>Chưa nhập thông tin thí sinh</span>
-                    )}
-                  </div>
+                  {user?.fullName ? (
+                    <>
+                      <div style={{ fontSize: '16px', fontWeight: 900, color: '#ffffff', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                        <span>Xin chào, <span style={{ color: '#ffc247' }}>{user.fullName}</span>!</span>
+                        <span style={{ fontSize: '14px' }}>👋</span>
+                      </div>
+                      <div style={{ fontSize: '12px', color: '#94a3b8', fontWeight: 600, marginTop: '2px' }}>
+                        {user.unit ? `Đơn vị: ${user.unit}` : 'Thông tin sẵn sàng in Giấy Chứng Nhận'}
+                      </div>
+                    </>
+                  ) : (
+                    <>
+                      <div style={{ fontSize: '11px', color: '#ffc247', fontWeight: 800, textTransform: 'uppercase', letterSpacing: '0.05em' }}>
+                        Thông tin thí sinh in Giấy Chứng Nhận
+                      </div>
+                      <div style={{ fontSize: '14px', fontWeight: 800, color: '#fb7185', marginTop: '2px' }}>
+                        Chưa nhập thông tin thí sinh
+                      </div>
+                    </>
+                  )}
                 </div>
               </div>
 
