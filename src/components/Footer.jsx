@@ -73,7 +73,7 @@ export default function Footer({ onGoHome, onOpenQR }) {
           <span>•</span>
           <span style={{ display: 'inline-flex', alignItems: 'center', gap: '5px' }}>
             <Phone className="w-3.5 h-3.5 text-emerald-400" />
-            <span>+84 964889141</span>
+            <a href="tel:0353580190" style={{ color: 'inherit', textDecoration: 'none' }}>0353580190</a>
           </span>
           <span>•</span>
           <span style={{ display: 'inline-flex', alignItems: 'center', gap: '5px' }}>
